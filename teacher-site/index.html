@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Преподаватель</title>
+	<link rel="stylesheet" href="style.css">
+	<script>
+		let person = {
+    fullName: "",
+    occupation: "",
+    degree: "",
+    education: "",
+    qualification: "",
+    specialty: "",
+    discipline: "",
+    category: "",
+    experience: "",
+    email: "",
+    site: "",
+};
+
+let newName = prompt('Здравствуйте! Введите, пожалуйста ваше ФИО')
+person.fullName = newName;
+
+let message = `${person.fullName}, ответьте, пожалуйста на несколько вопросов далее для формирования портфолио`
+alert(message)
+
+person.occupation = prompt('Введите желаемую должность')
+person.degree = prompt('Введите уровень образования')
+person.education = prompt('Введите ваш университет')
+person.qualification = prompt('Введите вашу квалификацию')
+person.specialty = prompt('Введите вашу специальность')
+person.discipline = prompt('Введите желаемую дисциплину')
+
+person.category = prompt('Введите вашу категорию')
+person.experience = prompt('Введите ваш стаж')
+person.email = prompt('Введите ваш адрес электронной почты')
+person.site = prompt('Введите ваш сайт')
+
+let info = `
+        <h1>${person.fullName}</h1>
+        <h2>${person.occupation}</h2>
+        <hr class="info-hr">
+        <h3>Основная информация:</h3>
+        <ul class="info-list">
+            <li>
+                <span class="info-item">Уровень образования:</span> ${person.degree}
+            <li>
+                <span class="info-item">Образование:</span> ${person.education}
+            </li>
+             <li>
+                <span class="info-item">Квалификация:</span> ${person.qualification}
+            </li>
+            <li>
+                <span class="info-item">Специализация:</span> ${person.specialty}
+            </li>
+            <li>
+                <span class="info-item">Преподаваемые дисциплины:
+                    <ul>
+                        <li>${person.discipline}</li>
+                        
+
+                    </ul>
+                </span>
+            </li>
+        </ul>
+        <h3>Дополнительная информация:</h3>
+        <ul class="info-list">
+            <li>
+                <span class="info-item">Категория: </span> ${person.discipline}
+            </li>
+            <li>
+                <span class="info-item">Стаж: </span> ${person.experience}
+            </li>
+            <li>
+                <span class="info-item">Email: </span> ${person.email}
+            </li>
+            <li>
+                <span class="info-item">Персональный сайт </span>${person.site}
+            </li>
+        </ul>
+`
+
+
+
+	</script>
+</head>
+<body>
+	<header class="header">
+		<nav class="header-nav">
+			<ul class="header-list">
+				<li class="header-item">
+					<a href="#" class="header-link">О проекте</a>
+				</li>
+				<li class="header-item">
+					<a href="#" class="header-link">Курсы</a>
+				</li>
+				<li class="header-item">
+					<a href="#" class="header-link">Преподаватели</a>
+				</li>
+				<li class="header-item">
+					<a href="#" class="header-link">Контакты</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container">
+		<section class="foto">
+			<img src="images/no-image.jpg" class="foto-pic" alt="фото преподавателя">
+		</section>
+		<section class="info">
+			<script>
+				document.write(info)
+			</script>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<nav class="footer-nav">
+			<ul class="footer-list">
+				<li class="footer-item">
+					<a href="#" class="footer-link">О проекте</a>
+				</li>
+				<li class="footer-item">
+					<a href="#" class="footer-link">Курсы</a>
+				</li>
+				<li class="footer-item">
+					<a href="#" class="footer-link">Преподаватели</a>
+				</li>
+				<li class="footer-item">
+					<a href="#" class="footer-link">Контакты</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="footer-info">
+			Страница создана по заявке Дарьи К. 2024
+		</div>
+	</footer>
+
+
+	<script src="script.js"></script>
+</body>
+</html>
