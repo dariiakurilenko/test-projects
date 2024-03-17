@@ -1,0 +1,89 @@
+@font-face {
+	font-family: Lagoda;
+	src: url("fonts/Lagoda.otf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14pt;
+    background-color: #e3e3e3;
+    font-family: Lagoda;
+}
+
+
+p {
+    padding: 5px 0;
+}
+
+
+div.content {
+    max-width: 720px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+div.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+div.col {
+    width: 49%;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: white;
+    border: solid 1px rgba(0,0,0,0.3);
+	box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+div.col img {
+    width: 100%;
+    height: 300px;
+}
+div.col p {
+    text-align: justify
+}
+
+header {
+	background-color: white;
+	border-bottom: solid 2px black;
+	box-shadow: 0 0 3px rgba(0,0,0,0.7);
+}
+
+header div.top {
+	padding: 40px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: solid 2px black;
+}
+
+main {
+	margin-bottom: 40px;
+}
+
+@media screen and (min-width: 1200px) {
+	div.content {
+		max-width: 1200px;
+	}
+	div.row {
+		justify-content: center;
+	}
+	div.col {
+		margin: 10px;
+		width: 31%;
+	}
+}
+
+div.row img+p {
+	text-align: center;
+	font-weight: bold;
+	font-size: 26px;
+}

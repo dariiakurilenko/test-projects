@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Красивые города мира</title>
+	<link rel="stylesheet" href="styles.css">
+	<script src="data.js"></script>
+</head>
+<body>
+	<header>
+		<div class="top">
+			<h1>Самые красивые города мира</h1>
+		</div>
+	</header>
+	<main>
+		<div class="content">
+			<div class="row">
+				<!-- место для вставки созданного контента -->
+			</div>
+		</div>
+	</main>
+
+	<script>
+		
+
+		let div1 = document.createElement('div')
+		div1.className = 'col'
+		let img = document.createElement('img')
+		let p1 = document.createElement('p')
+		let p2 = document.createElement('p')
+
+		div1.append(img)
+		div1.append(p1)
+		div1.append(p2)
+
+
+		let div2 = div1.cloneNode(true)
+		let div3 = div1.cloneNode(true)
+		let div4 = div1.cloneNode(true)
+		let div5 = div1.cloneNode(true)
+		let div6 = div1.cloneNode(true)
+
+		let div1Children = div1.children
+		div1Children[0].setAttribute('src', obj[0].img)
+		div1Children[1].innerHTML = obj[0].name
+		div1Children[2].innerHTML = obj[0].text
+
+		let div2Children = div2.children
+		div2Children[0].setAttribute('src', obj[1].img)
+		div2Children[1].innerHTML = obj[1].name
+		div2Children[2].innerHTML = obj[1].text
+
+		let div3Children = div3.children
+		div3Children[0].setAttribute('src', obj[2].img)
+		div3Children[1].innerHTML = obj[2].name
+		div3Children[2].innerHTML = obj[2].text
+
+		let div4Children = div4.children
+		div4Children[0].setAttribute('src', obj[3].img)
+		div4Children[1].innerHTML = obj[3].name
+		div4Children[2].innerHTML = obj[3].text
+
+		let div5Children = div5.children
+		div5Children[0].setAttribute('src', obj[4].img)
+		div5Children[1].innerHTML = obj[4].name
+		div5Children[2].innerHTML = obj[4].text
+
+		let div6Children = div6.children
+		div6Children[0].setAttribute('src', obj[5].img)
+		div6Children[1].innerHTML = obj[5].name
+		div6Children[2].innerHTML = obj[5].text
+
+
+		let target = document.querySelector('.row')
+
+		target.insertAdjacentElement('beforeend', div1);
+		target.insertAdjacentElement('beforeend', div2);
+		target.insertAdjacentElement('beforeend', div3);
+		target.insertAdjacentElement('beforeend', div4);
+		target.insertAdjacentElement('beforeend', div5);
+		target.insertAdjacentElement('beforeend', div6);
+		
+		
+
+	</script>
+	
+</body>
+</html>
