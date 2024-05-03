@@ -11,3 +11,6 @@ the info about one of the wonders of the world appears randomly on the website
    user prints a number of news he wants to see on a webpage(from 1 to 12). Example if 6:
 ![image](https://github.com/dariiakurilenko/test-projects/assets/113102018/2861643f-63d7-4e94-bd46-d1a08b7a0925)
 
+4) user profile:
+   user prints login and password and enters his profile with all info
+   ![image](https://github.com/dariiakurilenko/test-projects/assets/113102018/775214a1-4561-4a9e-ba43-56b1a1312626)
