@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Программирование в среде JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="news.js"></script>
+</head>
+	<header>
+		<div class="top">
+			<h1>Новостная сводка</h1>
+		</div>
+	</header>
+
+	<main>
+		<div class="wrapper">
+			<div id="content" class="row">
+
+			</div>
+		</div>
+	</main>
+
+	<script>
+		let userError = {
+            name: 'loading error',
+            message: 'не удалось загрузить новости',
+            description: 'Неверно заданное количество новостей. Сверьтесь с подсказкой и попробуйте снова',
+            userMessage: "Что-то пошло не так..."
+        }
+
+        let content = document.getElementById('content');
+		
+        let news = prompt('Сколько новостей вы хотите загрузить? (от 1 до 6)', 3)
+
+        try{
+            if (news > 6 || news < 1){
+                throw userError;
+            }else {
+                for (let i = 0; i < news; i++){
+                    printNews = `
+                        <div>
+                            <img src = ${newsArr[i].image}>
+                            <span>${newsArr[i].date}</span>
+							<h3>${newsArr[i].name}</h3>
+							<p>${newsArr[i].text}</p>
+                        </div>
+                    `
+                    content.insertAdjacentHTML('beforeend', printNews);
+                }
+            }
+        }catch(err){
+            content.innerHTML = `<h1>${err.userMessage}</h1>`
+        }
+	</script>
+
+		
+</body>
+</html>
