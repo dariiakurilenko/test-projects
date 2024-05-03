@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 wonders of the world</title>
+    <script src="sevenWonders.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper">
+		<!-- этот текст виден в браузере всегда  -->
+
+		<h1 class="title">Семь чудес света</h1>
+
+		<p>Во все века люди гордились и бережно охраняли достижения своих цивилизаций. Память об этих достижениях дошла
+			и до наших дней, став достоянием всемирной истории. Семь чудес света – это классический список выдающихся
+			творений рук человеческих.</p>
+		<p>Интересен факт, что он был хорошо известен еще до нашей эры. В древних школах детей обучали разным наукам, и
+			знание 7 чудес света было обязательным.</p>
+		<p>В данной статье мы предоставим вам не только список 7 чудес света, но и сделаем краткое описание каждого из
+			них.</p>
+
+		<h2>Список 7 чудес света</h2>
+
+		<!-- 
+			блок для вывода списка ссылок из семи чудес света 
+			ссылки строятся из свойств -title и -href  объекта -sevenWonders 
+		-->
+		<ol id="wonders-list"></ol>
+		<!-- /// -->
+	</div>
+
+    <script>
+        //получаем случайное число для вывода одного из семи чудес света
+        let num = Math.round(Math.random() * 6)
+        
+        //из выбранного случайным образом объекта делаем контент страницы
+        let text = `
+			<div>
+				<h2 class="title">${sevenWonders[num].name}</h2>
+				<img src=${sevenWonders[num].images[0].src} title="${sevenWonders[num].images[0].title}">
+				<img src=${sevenWonders[num].images[1].src} title="${sevenWonders[num].images[1].title}">
+				${sevenWonders[num].description}
+			</div>
+		`;
+        // формируем список ссылок из семи чудес света
+		let list = `
+			<li><a href="${sevenWonders[0].href}" target="blank">${sevenWonders[0].title}</a></li>
+			<li><a href="${sevenWonders[1].href}" target="blank">${sevenWonders[1].title}</a></li>
+			<li><a href="${sevenWonders[2].href}" target="blank">${sevenWonders[2].title}</a></li>
+			<li><a href="${sevenWonders[3].href}" target="blank">${sevenWonders[3].title}</a></li>
+			<li><a href="${sevenWonders[4].href}" target="blank">${sevenWonders[4].title}</a></li>
+			<li><a href="${sevenWonders[5].href}" target="blank">${sevenWonders[5].title}</a></li>
+			<li><a href="${sevenWonders[6].href}" target="blank">${sevenWonders[6].title}</a></li>
+		`;
+
+		// вставляем блок ссылок
+		document.querySelector("#wonders-list").insertAdjacentHTML("afterbegin", list)
+
+		// вставляем основной контент страницы
+		document.querySelector("#wrapper").insertAdjacentHTML('beforeend', text);
+    </script>
+</body>
+</html>
