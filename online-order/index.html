@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн заказ пользователя</title>
+    <script src="JSON.js"></script>
+    <link rel="shortcut icon" type="img/ico" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        
+        let order = JSON.parse(json_order)
+        //цена первого товара
+        let productCost1 = order.products[0].price * order.products[0].quantity
+        //цена второго товара
+        let productCost2 = order.products[1].price * order.products[1].quantity
+        //цена третьего товара
+        let productCost3 = order.products[2].price * order.products[2].quantity
+
+        //итоговая стоимость товара
+        let totalPrice = productCost1 + productCost2 + productCost3
+
+        //скидка
+        let discount = parseInt(order.order_info.discount)
+        //итоговая стоимость со скидкой
+        let totalPriceWithDiscount = totalPrice - totalPrice * (discount / 100)
+
+        //вывод
+        document.write(
+			`
+				<div class="wrapper">
+					<h2 class="user_order_header">Заказ пользователя: ${order.user.name} ${order.user.surname}</h2>
+					<div class="user_data">	
+						<div class="user_personal_data">
+							<div class="order_item">
+								<div class="order_item_title">Номер телефона</div><div class="order_item_border">${order.user.phone}</div>
+							</div>
+							<div class="order_item">
+								<div class="order_item_title">E-mail</div><div class="order_item_border">${order.user.email}</div>
+							</div>
+						</div>
+
+						<div class="user_order_data">
+							<div class="order_item">
+								<div class="order_item_title">Дата заказа</div><div class="order_item_border">${order.order_info.order_date}</div>
+							</div>
+							<div class="order_item">
+								<div class="order_item_title">Тип доставки</div><div class="order_item_border">${order.order_info.delivery_type} (${order.order_info.address.city}, ${order.order_info.address.street}, ${order.order_info.address.house})</div>
+							</div>
+							<div class="order_item">
+								<div class="order_item_title">Скидка</div><div class="order_item_border">${order.order_info.discount}</div>
+							</div>
+						</div>
+					</div>
+					<div class="products">
+						<hr>
+						<div class="product_card">
+							<div class="product_card_info">
+								Артикул: ${order.products[0].articul}<br>
+								Название: ${order.products[0].name}<br>
+								Бренд: ${order.products[0].brand}<br>
+								Цвет: ${order.products[0].color}<br>
+								Сезон: ${order.products[0].season}<br>
+								Цена: ${order.products[0].price} ₽
+							</div>
+							<div class="product_card_quantity">
+								<div class="quantity_adjust">-</div>${order.products[0].quantity}<div class="quantity_adjust">+</div>
+							</div>
+							<div class="product_card_cost">
+								${productCost1} ₽
+							</div>
+						</div>
+						<hr>
+						<div class="product_card">
+							<div class="product_card_info">
+								Артикул: ${order.products[1].articul}<br>
+								Название: ${order.products[1].name}<br>
+								Бренд: ${order.products[1].brand}<br>
+								Цвет: ${order.products[1].color}<br>
+								Сезон: ${order.products[1].season}<br>
+								Цена: ${order.products[1].price} ₽
+							</div>
+							<div class="product_card_quantity">
+								<div class="quantity_adjust">-</div>${order.products[1].quantity}
+								<div class="quantity_adjust">+</div>
+							</div>
+							<div class="product_card_cost">
+								${productCost2} ₽
+							</div>
+						</div>
+						<hr>
+						<div class="product_card">
+							<div class="product_card_info">
+								Артикул: ${order.products[2].articul}<br>
+								Название: ${order.products[2].name}<br>
+								Бренд: ${order.products[2].brand}<br>
+								Цвет: ${order.products[2].color}<br>
+								Сезон: ${order.products[2].season}<br>
+								Цена: ${order.products[2].price} ₽
+							</div>
+							<div class="product_card_quantity">
+								<div class="quantity_adjust">-</div>${order.products[2].quantity}<div class="quantity_adjust">+</div>
+							</div>
+							<div class="product_card_cost">
+								${productCost3} ₽
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="total_price">
+						Итого:<span class="total_price_number">${totalPrice} ₽</span><br>
+						Итого (со скидкой):<span class="total_price_number">${totalPriceWithDiscount} ₽</span>
+					</div>
+				</div>
+			`
+		);
+    </script>
+
+
+   
+</body>
+</html>
