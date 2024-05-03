@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Введите логин и пароль</h2>
+    <a class = 'link' href="profile.html">Отправить</a>
+    <script>
+        let login = prompt('Введите логин:')
+        let passw = prompt('Введите пароль:')
+
+        let userAuth = {
+            login: login,
+            passw: passw,
+        }
+
+        let authUser = JSON.stringify(userAuth);
+        window.name = authUser
+    </script>
+</body>
+</html>

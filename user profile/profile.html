@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <script src="personal.js"></script>
+</head>
+<body>
+
+    <script>
+        let obj = JSON.parse(window.name);
+
+        for (let item of personnel){
+            let auth = (item.authorization.login == obj.login && item.authorization.password == obj.passw)? true: false;
+
+            if (auth){
+                with(item.info){
+                    let msg = `
+						<h2>${surname} ${name} ${patronymic} (id = ${id_personnel})</h2>
+						<img src="${img}" style="width: 200px;" alt="">
+						<p><b>Должность:</b> ${post}</p>
+						<p><b>Категория:</b> ${category}</p>
+						<p><b>Уровень образования:</b> ${level_edu}</p>
+						<p><b>Опыт работы в колледже:</b> ${experience_college}</p>
+						<p><b>Общий опыт работы:</b> ${experience_total}</p>
+						<p><b>Email:</b> ${email}</p>
+					`;
+                    document.write('<h2>Добро пожаловать в личный кабинет!</h2>')
+                    document.write(msg)
+                }
+                break
+            }
+    
+        }
+
+        try{
+            if (!auth){
+                throw Error('Неверный логин и/или пароль')
+            }
+        }catch(err){
+            document.write('Ошибка аутентификации пользователя\n')
+            document.write(`служебное сообщение: ${err.name}${err.message}`)
+        }
+        
+    </script>
+</body>
+</html>
